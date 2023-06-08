@@ -3,12 +3,13 @@
 from sys import argv
 
 if __name__ == "__main__":
-    nargs = len(argv) - 1
-    if nargs == 0:
-        print("0 arguments.")
-    elif nargs == 1:
-        print("1 argument:")
+    nargs = len(argv)
+    if nargs < 2:
+        print("{} arguments.".format(nargs - 1))
     else:
-        print("{} arguments:".format(nargs))
-        for i, v in enumerate(argv[1:]):
-            print("{}: {}".format(i + 1, v))
+        if nargs == 2:
+            print("{} argument:".format(nargs - 1))
+        else:
+            print("{} arguments:".format(nargs - 1))
+            for n in range(1, nargs):
+                print("{}: {}".format(n, argv[n]))
